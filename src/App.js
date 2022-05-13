@@ -11,13 +11,13 @@ const App = () => {
       <h1 className={s.title}>Phonebook</h1>
       <ContactForm />
       <h2 className={s.title}>Contacts</h2>
-      {contacts.length ? (
+      {contacts.length > 0 ? (
         <>
           <Filter />
           <ContactList />
         </>
       ) : (
-        <p>You have no saved contacts</p>
+        <p>You don't have any contacts</p>
       )}
     </div>
   );
