@@ -2,10 +2,17 @@ import ContactForm from './components/ContactForm';
 import Filter from './components/Filter';
 import ContactList from './components/ContactList';
 import s from './App.module.css';
-import { useSelector } from 'react-redux';
+
+import { useSelector, useDispatch } from 'react-redux';
+import { fetchContacts } from 'redux/contacts/contacts-operations';
+import { useEffect } from 'react';
 
 const App = () => {
   const contacts = useSelector(state => state.contacts.items);
+  const dispatch = useDispatch();
+
+  useEffect(() => dispatch(fetchContacts()), [dispatch]);
+
   return (
     <div className={s.container}>
       <h1 className={s.title}>Phonebook</h1>
